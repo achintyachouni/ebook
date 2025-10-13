@@ -1,418 +1,254 @@
-<!-- Save as landing.html and open in browser -->
-<!doctype html>
-<html lang="bn">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>How To Create & Sell Digital Product Using AI — Mobile Friendly</title>
-  <meta name="description" content="Learn step by step to build & sell your first digital product using AI. Bonus book included. Only ₹69!" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Create and Sell Digital Products Using AI</title>
   <style>
-    :root{
-      --dark-blue: #0f1b3a;
-      --oxford: #21306a;
-      --orange: #fca311;
-      --platinum: #e5e5e5;
-      --white: #ffffff;
-      --muted: #9aa6bf;
-      --max-width:1100px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
-    body{background:linear-gradient(180deg,var(--dark-blue),#061028);color:var(--white);-webkit-font-smoothing:antialiased;}
-    .container{max-width:var(--max-width);margin:0 auto;padding:20px;}
-
-    /* Top CTA - hidden on very small screens to avoid overlap */
-    .top-cta{
-      background:linear-gradient(90deg,#ff4d2d,#ff6e4d);color:#fff;padding:8px 14px;border-radius:36px;display:inline-block;font-weight:800;
-      position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:1200;box-shadow:0 8px 30px rgba(0,0,0,0.45);
-    }
-    @media(max-width:420px){ .top-cta{display:none;} }
-
-    header{padding-top:70px;padding-bottom:10px;}
-
-    /* HERO - responsive stack */
-    .hero{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:center;}
-    @media(max-width:920px){
-      .hero{grid-template-columns:1fr;gap:14px;text-align:center;padding:0 8px;}
-      .hero-right{order:-1}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
     }
 
-    .hero-left h1{margin:0 0 10px;font-size:clamp(20px,5vw,36px);line-height:1.05}
-    .sub{color:var(--platinum);font-size:15px;margin-bottom:14px}
-
-    .features-list{list-style:none;padding:0;margin:14px 0 18px;display:grid;row-gap:10px;justify-items:start}
-    .features-list li{display:flex;gap:10px;align-items:center;font-weight:700}
-    .check{width:28px;height:28px;border-radius:6px;background:#0fb26f;display:flex;align-items:center;justify-content:center;font-weight:800;color:#00321a}
-
-    .cta-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px;}
-    .btn{padding:12px 16px;border-radius:10px;border:0;font-weight:800;cursor:pointer}
-    .btn-primary{background:var(--orange);color:var(--dark-blue);box-shadow:0 8px 18px rgba(246,140,30,0.14)}
-    .btn-outline{background:transparent;border:2px solid rgba(255,255,255,0.10);color:var(--white)}
-
-    /* make CTA buttons full width on small screens */
-    @media(max-width:560px){
-      .cta-row{flex-direction:column;align-items:stretch}
-      .btn{width:100%}
+    body {
+      background-color: #f7f8fc;
+      color: #333;
+      scroll-behavior: smooth;
     }
 
-    .timer{background:rgba(255,255,255,0.03);padding:10px 12px;border-radius:10px;font-weight:800;display:inline-block;margin-left:6px}
+    /* ---------- HERO SECTION ---------- */
+    .hero {
+      background: linear-gradient(135deg, #211C84, #4D55CC);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
 
-    .hero-right{display:flex;flex-direction:column;align-items:center;gap:12px}
-    .mockups img{max-width:100%;border-radius:6px;box-shadow:0 10px 38px rgba(0,0,0,0.6);display:block}
-    .mockups{width:100%;max-width:340px}
+    .hero img {
+      width: 220px;
+      margin-bottom: 20px;
+      border-radius: 16px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
 
-    /* Who grid - mobile friendly 2 columns */
-    .who{margin-top:26px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:16px;border-radius:12px}
-    .who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .who-card{background:rgba(255,255,255,0.03);padding:12px;border-radius:10px;text-align:center}
-    .who-card h4{margin:6px 0 6px;font-size:15px}
-    .who-card p{color:var(--muted);font-size:13px;margin:0}
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
 
-    @media(max-width:900px){ .who-grid{grid-template-columns:repeat(2,1fr);} }
-    @media(max-width:420px){ .who-grid{grid-template-columns:1fr;} }
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      color: #E5E5E5;
+    }
 
-    /* What's inside - grid adjusts to 1 column on small */
-    .what{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:14px;border-radius:12px}
-    .grid-20{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px}
-    .item{background:rgba(255,255,255,0.03);padding:10px;border-radius:8px;font-weight:700;text-align:center}
+    .btn {
+      background: #FCA311;
+      color: #fff;
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
 
-    @media(max-width:720px){ .what{grid-template-columns:1fr} .grid-20{grid-template-columns:repeat(2,1fr);} }
-    @media(max-width:420px){ .grid-20{grid-template-columns:repeat(2,1fr);gap:8px} .item{font-size:14px;padding:8px} }
+    .btn:hover {
+      background: #ff8c00;
+    }
 
-    /* Testimonials - show 1 card on mobile */
-    .slider-wrap{margin-top:20px;overflow:hidden}
-    .slider{display:flex;gap:12px;transition:transform .45s cubic-bezier(.2,.9,.2,1)}
-    .review-card{min-width:260px;flex:0 0 auto;background:rgba(255,255,255,0.02);padding:14px;border-radius:10px;box-shadow:0 8px 26px rgba(0,0,0,0.45)}
-    .rev-name{font-weight:800}
-    .small{font-size:13px;color:var(--platinum)}
+    /* ---------- PRODUCT DETAILS ---------- */
+    .product-section {
+      max-width: 1100px;
+      margin: 60px auto;
+      text-align: center;
+      padding: 0 20px;
+    }
 
-    @media(min-width:1000px){ .review-card{min-width:320px} }
-    @media(max-width:700px){ .review-card{min-width:85%;} .slider{padding-left:6px} }
+    .product-section h2 {
+      font-size: 2rem;
+      color: #211C84;
+      margin-bottom: 20px;
+    }
 
-    .slider-controls{display:flex;gap:8px;justify-content:space-between;margin-top:10px;align-items:center}
-    .slider-controls .navs{display:flex;gap:8px}
-    .slider-controls .small{font-size:12px}
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
 
-    /* Pricing */
-    .pricing{margin-top:22px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between;padding:14px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent)}
-    .price-badge{background:var(--orange);color:var(--dark-blue);padding:10px 14px;border-radius:10px;font-weight:900;font-size:20px}
-    .bonus{background:#ff4d4d;padding:10px 12px;border-radius:10px;font-weight:800}
-    .spots{font-weight:900;color:#ffd7a6}
+    .product-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-    @media(max-width:560px){ .pricing{flex-direction:column;align-items:stretch} .price-badge{width:100%;text-align:center} .bonus{width:100%;text-align:center} }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
 
-    /* FAQ */
-    .faq{margin-top:22px}
-    .faq-item{background:rgba(255,255,255,0.02);border-radius:8px;padding:10px;margin-bottom:10px}
-    .faq-q{display:flex;justify-content:space-between;align-items:center;cursor:pointer}
-    .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;padding-top:0}
+    /* ---------- REVIEW SECTION ---------- */
+    .review-section {
+      background: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
 
-    footer{margin-top:30px;padding:12px;color:var(--platinum);font-size:14px;text-align:center}
+    .review-section h2 {
+      font-size: 2rem;
+      color: #211C84;
+      margin-bottom: 10px;
+    }
 
-    /* small touch */
-    button:focus{outline:3px solid rgba(255,178,80,0.22);outline-offset:2px}
+    .review-section p {
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .review-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .review-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 1px solid #eee;
+    }
+
+    /* ---------- PRICING SECTION ---------- */
+    .pricing {
+      background: #211C84;
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .pricing h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .pricing p {
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+
+    .price {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #FCA311;
+      margin-bottom: 20px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: #4D55CC;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero img {
+        width: 160px;
+      }
+
+      .product-card {
+        padding: 15px;
+      }
+
+      .review-card {
+        max-width: 180px;
+      }
+
+      .price {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="top-cta">LIMITED TIME OFFER — Only ₹69 ✅</div>
 
-  <div class="container">
-    <header>
-      <div class="hero" id="hero">
-        <div class="hero-left">
-          <h1>How To Create & Sell Digital Product Using AI</h1>
-          <p class="sub">Step-by-step course + templates + prompts + FREE bonus eBook. Launch fast — mobile friendly.</p>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <img src="How to create and sell digital product ussing ai.jpg.png" alt="eBook Cover">
+    <h1>How to Create & Sell Digital Products Using AI 💻</h1>
+    <p>Learn how to build and sell profitable digital products using Artificial Intelligence!</p>
+    <button class="btn">Buy Now @ ₹299</button>
+  </section>
 
-          <ul class="features-list" aria-hidden="false">
-            <li><span class="check">✓</span> No coding, no paid tools</li>
-            <li><span class="check">✓</span> Launch in 3 days (mobile)</li>
-            <li><span class="check">✓</span> WhatsApp support</li>
-          </ul>
+  <!-- PRODUCT DETAILS -->
+  <section class="product-section">
+    <h2>What You'll Learn 🚀</h2>
+    <div class="product-grid">
+      <div class="product-card">✅ How to find profitable niches</div>
+      <div class="product-card">✅ Create eBooks & Courses using AI</div>
+      <div class="product-card">✅ Build a brand without coding</div>
+      <div class="product-card">✅ Launch & sell online worldwide</div>
+    </div>
+  </section>
 
-          <div class="cta-row">
-            <button class="btn btn-primary" id="buyBtn">Buy Now — ₹69</button>
-            <button class="btn btn-outline" onclick="scrollToSection('faq')">Read FAQ</button>
-            <div class="timer" id="countdown">Ends in: <span id="time">--:--:--</span></div>
-          </div>
+  <!-- REVIEW SECTION (WhatsApp Screenshot Grid) -->
+  <section class="review-section">
+    <h2>Student WhatsApp Reviews 💬</h2>
+    <p>See what our students are saying about our course!</p>
 
-          <p class="small">FREE Bonus: "How to earn 1 Crore using AI (2026)" — included</p>
-        </div>
+    <div class="review-grid">
+      <div class="review-card"><img src="images/review1.jpg" alt="WhatsApp Review 1"></div>
+      <div class="review-card"><img src="images/review2.jpg" alt="WhatsApp Review 2"></div>
+      <div class="review-card"><img src="images/review3.jpg" alt="WhatsApp Review 3"></div>
+      <div class="review-card"><img src="images/review4.jpg" alt="WhatsApp Review 4"></div>
+      <div class="review-card"><img src="images/review5.jpg" alt="WhatsApp Review 5"></div>
+      <div class="review-card"><img src="images/review6.jpg" alt="WhatsApp Review 6"></div>
+      <div class="review-card"><img src="images/review7.jpg" alt="WhatsApp Review 7"></div>
+      <div class="review-card"><img src="images/review8.jpg" alt="WhatsApp Review 8"></div>
+    </div>
+  </section>
 
-        <aside class="hero-right">
-          <div class="mockups" aria-hidden="true">
-            <img src="images/book-cover-1.png" alt="Main book mockup" style="max-width:260px">
-            <img src="images/book-cover-2.png" alt="Bonus book mockup" style="max-width:160px;opacity:0.98">
-          </div>
-        </aside>
-      </div>
-    </header>
+  <!-- PRICING SECTION -->
+  <section class="pricing">
+    <h2>Get This Course Now!</h2>
+    <p>Only 50 Spots Left! Don’t Miss Out 🔥</p>
+    <div class="price">₹299</div>
+    <button class="btn">Buy Now</button>
+  </section>
 
-    <!-- Who can buy -->
-    <section class="who" id="who">
-      <h2 style="margin:0 0 12px">Who can buy this?</h2>
-      <div class="who-grid" role="list">
-        <div class="who-card" role="listitem"><h4>Beginners</h4><p>Step-by-step; start with zero.</p></div>
-        <div class="who-card" role="listitem"><h4>Bloggers</h4><p>Monetize your content.</p></div>
-        <div class="who-card" role="listitem"><h4>Students</h4><p>Part-time income methods.</p></div>
-        <div class="who-card" role="listitem"><h4>Small Biz</h4><p>Digital products as extra revenue.</p></div>
-      </div>
-    </section>
+  <!-- FOOTER -->
+  <footer>
+    © 2025 TechBuzz. All Rights Reserved.
+  </footer>
 
-    <!-- What's inside -->
-    <section class="what" aria-labelledby="what-title">
-      <div class="card">
-        <h3 id="what-title">What you'll get</h3>
-        <ul style="list-style:none;padding:0;margin-top:10px">
-          <li style="margin-bottom:8px;font-weight:800">• Full course modules + templates</li>
-          <li style="margin-bottom:8px;font-weight:800">• Sales-page copy + ad scripts</li>
-          <li style="margin-bottom:8px;font-weight:800">• AI prompts & mobile workflows</li>
-          <li style="margin-bottom:8px;font-weight:800">• WhatsApp support & community</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Course Grid (sample)</h3>
-        <div class="grid-20" aria-hidden="false">
-          <div class="item">Module 1 — Idea</div>
-          <div class="item">Module 2 — Product</div>
-          <div class="item">Module 3 — Packaging</div>
-          <div class="item">Module 4 — Sales Page</div>
-          <div class="item">Module 5 — Ads</div>
-          <div class="item">Module 6 — Delivery</div>
-          <div class="item">Module 7 — Scale</div>
-          <div class="item">Module 8 — Templates</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Reviews -->
-    <section class="slider-wrap" id="reviews" aria-labelledby="reviews-title">
-      <h3 id="reviews-title" style="margin-bottom:10px">Reviews</h3>
-      <div style="display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;">
-        <div style="flex:1;min-width:260px;">
-          <div class="slider" id="slider" aria-live="polite">
-            <div class="review-card">
-              <div class="rev-name">Riya — Student</div>
-              <div class="small">"Built my first paid product using only mobile — sold 10 copies in week 1."</div>
-            </div>
-            <div class="review-card">
-              <div class="rev-name">Amit — Freelancer</div>
-              <div class="small">"Templates saved me days. Clear steps."</div>
-            </div>
-            <div class="review-card">
-              <div class="rev-name">Suman — Side Hustle</div>
-              <div class="small">"Loved the mobile workflow."</div>
-            </div>
-            <div class="review-card">
-              <div class="rev-name">Priya — Blogger</div>
-              <div class="small">"Ebook converted my audience to buyers."</div>
-            </div>
-          </div>
-
-          <div class="slider-controls" style="margin-top:12px;">
-            <div class="navs">
-              <button class="btn btn-outline" id="prevRev">Prev</button>
-              <button class="btn btn-outline" id="nextRev">Next</button>
-            </div>
-            <div class="small">Auto-scroll every 5s</div>
-          </div>
-        </div>
-
-        <aside style="width:320px;max-width:100%;display:flex;flex-direction:column;gap:12px;">
-          <div class="card">
-            <h4 style="margin:0 0 8px">FREE Bonus</h4>
-            <p style="margin:0">"How to earn 1 Crore using AI (2026)" — strategies & case studies.</p>
-          </div>
-          <div class="card">
-            <h4 style="margin:0 0 8px">Guarantee</h4>
-            <p style="margin:0">7-day support — contact for help or refund if valid.</p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section class="pricing" id="pricing">
-      <div>
-        <div style="font-size:18px;font-weight:900">Complete Bundle</div>
-        <div class="small">Course + templates + bonus eBook + WhatsApp support</div>
-        <div style="margin-top:6px"><span class="spots">Only 50 spots left!</span></div>
-      </div>
-
-      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-        <div class="price-badge">₹69</div>
-        <div class="bonus">FREE Bonus Book</div>
-        <div style="min-width:130px"><button class="btn btn-primary" id="buyBtn2">Buy Now</button></div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq" id="faq">
-      <h3>FAQ</h3>
-      <div class="faq-item">
-        <div class="faq-q"><strong>Who is this for?</strong><span class="plus">+</span></div>
-        <div class="faq-a"><p style="margin:8px 0 0">Beginners, creators, students and small businesses.</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><strong>Payment methods?</strong><span class="plus">+</span></div>
-        <div class="faq-a"><p style="margin:8px 0 0">Razorpay — UPI, cards, netbanking.</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><strong>Delivery?</strong><span class="plus">+</span></div>
-        <div class="faq-a"><p style="margin:8px 0 0">Instant access link + WhatsApp group invite after payment.</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><strong>Refund policy?</strong><span class="plus">+</span></div>
-        <div class="faq-a"><p style="margin:8px 0 0">Contact support within 7 days for issues.</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><strong>Need subscriptions?</strong><span class="plus">+</span></div>
-        <div class="faq-a"><p style="margin:8px 0 0">No — we use free tools & templates.</p></div>
-      </div>
-    </section>
-
-    <footer>
-      &copy; TechBuzz — All rights reserved.
-    </footer>
-  </div>
-
-  <!-- Razorpay (client-side fallback) -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
-  <script>
-    /* CONFIG */
-    const RAZORPAY_KEY_ID = "RAZORPAY_KEY_ID_REPLACE_ME";
-    const AMOUNT_INR = 69;
-    const AMOUNT_PAISE = AMOUNT_INR * 100;
-
-    function scrollToSection(id){
-      document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
-    }
-
-    /* Timer (persistent per user) */
-    if(!localStorage.getItem('offer_ends_at')){
-      const end = Date.now() + 72*60*60*1000;
-      localStorage.setItem('offer_ends_at', end);
-    }
-    const offerEndsAt = parseInt(localStorage.getItem('offer_ends_at'),10);
-    function updateTimer(){
-      const now = Date.now(); const diff = Math.max(0, offerEndsAt - now);
-      const hrs = Math.floor(diff / (1000*60*60));
-      const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
-      const secs = Math.floor((diff % (1000*60)) / 1000);
-      document.getElementById('time').innerText = `${String(hrs).padStart(2,'0')}:${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
-      if(diff<=0) clearInterval(timerInterval);
-    }
-    updateTimer();
-    const timerInterval = setInterval(updateTimer,1000);
-
-    /* RESPONSIVE testimonial slider logic */
-    const slider = document.getElementById('slider');
-    const reviews = Array.from(slider.children);
-    let currentIndex = 0;
-    let autoInterval = null;
-
-    function visibleCards(){
-      const w = window.innerWidth;
-      if(w >= 1000) return 3;
-      if(w >= 700) return 2;
-      return 1;
-    }
-
-    // compute width dynamically (first child width + gap)
-    function getCardStep(){
-      const first = slider.children[0];
-      if(!first) return 300;
-      const style = getComputedStyle(slider);
-      const gap = parseInt(style.gap || 12);
-      return Math.round(first.getBoundingClientRect().width + gap);
-    }
-
-    function goToIndex(i){
-      const cards = visibleCards();
-      const maxIndex = Math.max(0, reviews.length - cards);
-      currentIndex = Math.min(Math.max(0, i), maxIndex);
-      const step = getCardStep();
-      slider.style.transform = `translateX(-${currentIndex * step}px)`;
-    }
-
-    document.getElementById('prevRev').addEventListener('click', ()=>{ goToIndex(currentIndex-1); resetAuto(); });
-    document.getElementById('nextRev').addEventListener('click', ()=>{ goToIndex(currentIndex+1); resetAuto(); });
-
-    function autoScroll(){
-      const cards = visibleCards();
-      const maxIndex = Math.max(0, reviews.length - cards);
-      goToIndex((currentIndex + 1) > maxIndex ? 0 : currentIndex+1);
-    }
-    function startAuto(){ autoInterval = setInterval(autoScroll,5000); }
-    function resetAuto(){ clearInterval(autoInterval); startAuto(); }
-    window.addEventListener('resize', ()=>{ goToIndex(0); });
-
-    // start after slight delay (wait images load)
-    setTimeout(()=>{ startAuto(); goToIndex(0); }, 300);
-
-    /* FAQ accordion */
-    document.querySelectorAll('.faq-item').forEach(item=>{
-      const q = item.querySelector('.faq-q');
-      const a = item.querySelector('.faq-a');
-      q.addEventListener('click', ()=>{
-        const isOpen = a.style.maxHeight && a.style.maxHeight !== '0px';
-        document.querySelectorAll('.faq-a').forEach(x=>x.style.maxHeight = null);
-        if(!isOpen) a.style.maxHeight = a.scrollHeight + 'px';
-      });
-    });
-
-    /* RAZORPAY integration - recommended server order creation */
-    function openRazorpayClientOnly(){
-      const options = {
-        "key": RAZORPAY_KEY_ID,
-        "amount": AMOUNT_PAISE,
-        "currency": "INR",
-        "name": "TechBuzz",
-        "description": "How To Create & Sell Digital Product Using AI",
-        "handler": function (response){
-          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
-          // here call your backend to verify and then show access link
-        },
-        "prefill": { "name":"", "email":"", "contact":"" },
-        "theme": { "color": "#fca311" }
-      };
-      const rzp = new Razorpay(options);
-      rzp.open();
-    }
-
-    async function openRazorpayWithOrder(){
-      try{
-        const res = await fetch('/create_order', {
-          method:'POST', headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({ amount: AMOUNT_PAISE })
-        });
-        if(!res.ok){ openRazorpayClientOnly(); return; }
-        const data = await res.json();
-        const options = {
-          key: RAZORPAY_KEY_ID,
-          amount: data.amount || AMOUNT_PAISE,
-          currency: "INR",
-          name: "TechBuzz",
-          description: "How To Create & Sell Digital Product Using AI",
-          order_id: data.order_id,
-          handler: function(response){ alert("Payment successful! ID: " + response.razorpay_payment_id); },
-          theme: {color: "#fca311"}
-        };
-        const rz = new Razorpay(options);
-        rz.open();
-      }catch(err){
-        console.error(err);
-        openRazorpayClientOnly();
-      }
-    }
-
-    document.getElementById('buyBtn').addEventListener('click', ()=>{ openRazorpayWithOrder(); });
-    document.getElementById('buyBtn2').addEventListener('click', ()=>{ openRazorpayWithOrder(); });
-
-    // keyboard accessibility for buttons
-    document.querySelectorAll('button').forEach(b=>b.addEventListener('keyup', e=>{ if(e.key==='Enter') b.click(); }));
-  </script>
 </body>
 </html>
