@@ -1,0 +1,476 @@
+<!-- Save this as landing.html and open in browser -->
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>How To Create & Sell Digital Product Using AI — Landing</title>
+  <meta name="description" content="Learn step by step to build & sell your first digital product using AI. Bonus book included. Only ₹69!" />
+  <style>
+    :root{
+      --dark-blue: #0f1b3a; /* deep navy */
+      --oxford: #21306a;    /* accent */
+      --orange: #fca311;    /* CTA highlight */
+      --platinum: #e5e5e5;
+      --white: #ffffff;
+      --muted: #9aa6bf;
+      --max-width: 1100px;
+    }
+
+    /* Reset & basics */
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+    body{background:linear-gradient(180deg,var(--dark-blue),#0b1530);color:var(--white);-webkit-font-smoothing:antialiased;}
+
+    .container{max-width:var(--max-width);margin:0 auto;padding:24px;}
+
+    /* Top sticky bar CTA */
+    .top-cta{
+      background:linear-gradient(90deg,#ff4d2d,#ff6e4d);
+      color:#fff;padding:10px 16px;border-radius:40px;display:inline-block;font-weight:700;
+      position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:1200;box-shadow:0 6px 18px rgba(0,0,0,0.35);
+    }
+
+    header{
+      padding-top:80px;padding-bottom:24px;
+    }
+
+    .hero{
+      display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center;
+    }
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr; text-align:center;}
+    }
+
+    .hero-left h1{
+      margin:0 0 12px;font-size:clamp(24px,4vw,40px);line-height:1.05;
+    }
+    .sub{
+      color:var(--platinum);font-size:16px;margin-bottom:18px;
+    }
+    .features-list{list-style:none;padding:0;margin:18px 0 24px;display:inline-grid;row-gap:10px;}
+    .features-list li{display:flex;gap:10px;align-items:center;font-weight:600}
+    .check{
+      width:28px;height:28px;border-radius:6px;background:linear-gradient(180deg,#0f9d58,#0b8a4a);display:flex;align-items:center;justify-content:center;font-weight:700;
+    }
+
+    .cta-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px;}
+    .btn{
+      padding:12px 18px;border-radius:10px;border:0;font-weight:800;cursor:pointer;
+    }
+    .btn-primary{background:var(--orange);color:var(--dark-blue);box-shadow:0 8px 20px rgba(249,140,37,0.18)}
+    .btn-outline{background:transparent;border:2px solid rgba(255,255,255,0.12);color:var(--white)}
+
+    .timer{
+      background:rgba(255,255,255,0.04);padding:10px 14px;border-radius:10px;font-weight:700;display:inline-block;
+      margin-left:6px;
+    }
+
+    .mockups{
+      display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;
+    }
+    .mockups img{max-width:100%;border-radius:6px;box-shadow:0 10px 35px rgba(2,6,23,0.6);}
+
+    /* Who can buy (grid) */
+    .who{
+      margin-top:36px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:22px;border-radius:12px;
+    }
+    .who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+    .who-card{background:rgba(255,255,255,0.03);padding:14px;border-radius:10px;text-align:center;}
+    .who-card h4{margin:8px 0 6px;font-size:16px}
+    .who-card p{color:var(--muted);font-size:13px;margin:0}
+
+    @media(max-width:900px){
+      .who-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:480px){
+      .who-grid{grid-template-columns:1fr;}
+      .hero{grid-template-columns:1fr}
+    }
+
+    /* Features & what's inside */
+    .what{
+      display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px;
+    }
+    .grid-20{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+    .item{background:rgba(255,255,255,0.03);padding:10px;border-radius:8px;font-weight:700}
+
+    /* Testimonials slider */
+    .slider-wrap{margin-top:26px;overflow:hidden}
+    .slider{
+      display:flex;gap:12px;transition:transform 0.45s cubic-bezier(.2,.9,.2,1);
+    }
+    .review-card{min-width:240px;background:rgba(255,255,255,0.02);padding:14px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.45)}
+    .rev-name{font-weight:800}
+    .slider-controls{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
+    .small{font-size:13px;color:var(--platinum)}
+
+    @media(min-width:1000px){
+      .review-card{min-width:320px}
+      .slider{gap:18px}
+    }
+
+    /* Pricing block */
+    .pricing{
+      margin-top:28px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:space-between;
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px;
+    }
+    .price-badge{background:var(--orange);color:var(--dark-blue);padding:12px 18px;border-radius:10px;font-weight:900;font-size:20px}
+    .bonus{background:#ff4d4d;padding:12px 16px;border-radius:10px;font-weight:800}
+    .spots{font-weight:800;color:#ffd7a6}
+
+    /* FAQ */
+    .faq{margin-top:26px}
+    .faq-item{background:rgba(255,255,255,0.02);border-radius:8px;padding:12px;margin-bottom:8px}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;padding-top:0}
+    .rotate{transform:rotate(45deg)}
+
+    footer{margin-top:40px;padding:18px;color:var(--platinum);font-size:14px;text-align:center}
+
+    /* small screens tweak for hero buttons */
+    @media(max-width:600px){
+      .cta-row{justify-content:center}
+      .mockups{order:-1;margin-bottom:14px}
+    }
+  </style>
+</head>
+<body>
+  <div class="top-cta">LIMITED TIME OFFER — Only ₹69 <span style="margin-left:10px;font-weight:700">✅</span></div>
+
+  <div class="container">
+    <header>
+      <div class="hero" id="hero">
+        <div class="hero-left">
+          <h1>How To Create & Sell Digital Product Using AI</h1>
+          <p class="sub">Step-by-step course + templates + chatgpt prompts + 1 FREE bonus eBook. Launch in 3 days. No coding required.</p>
+
+          <ul class="features-list">
+            <li><span class="check">✓</span> No coding, no paid tools</li>
+            <li><span class="check">✓</span> WhatsApp support & community</li>
+            <li><span class="check">✓</span> Work on mobile</li>
+          </ul>
+
+          <div class="cta-row">
+            <button class="btn btn-primary" id="buyBtn">Buy Now — ₹69</button>
+            <button class="btn btn-outline" onclick="scrollToSection('faq')">FAQ</button>
+            <div class="timer" id="countdown">Offer ends in: <span id="time">--:--:--</span></div>
+          </div>
+
+          <p class="small">✅ FREE Bonus Book: "How to earn 1 Crore using AI (2026)" included</p>
+          <p class="small">🔒 Secure payment via Razorpay</p>
+        </div>
+
+        <aside class="mockups" aria-hidden="true">
+          <!-- Replace following src with your real mockup files -->
+          <img src="images/book-cover-1.png" alt="Main book mockup" style="max-width:260px">
+          <img src="images/book-cover-2.png" alt="Bonus book mockup" style="max-width:180px;opacity:0.95">
+        </aside>
+      </div>
+    </header>
+
+    <!-- Who can buy -->
+    <section class="who" id="who">
+      <h2 style="margin:0 0 12px">Who can buy this?</h2>
+      <div class="who-grid" role="list">
+        <div class="who-card" role="listitem"><h4>Beginners</h4><p>Start from zero — step by step guidance.</p></div>
+        <div class="who-card" role="listitem"><h4>Bloggers & Creators</h4><p>Turn content into sellable digital products.</p></div>
+        <div class="who-card" role="listitem"><h4>Students</h4><p>Earn part-time using AI tools & templates.</p></div>
+        <div class="who-card" role="listitem"><h4>Small businesses</h4><p>Add digital products as a new revenue stream.</p></div>
+      </div>
+    </section>
+
+    <!-- What's inside & course grid -->
+    <section class="what">
+      <div class="card">
+        <h3>What you'll get</h3>
+        <ul style="list-style: none;padding:0;margin-top:10px">
+          <li style="margin-bottom:8px;font-weight:700">• Complete course modules + templates</li>
+          <li style="margin-bottom:8px;font-weight:700">• Ready-made sales page copy & ads scripts</li>
+          <li style="margin-bottom:8px;font-weight:700">• AI prompts to create products fast</li>
+          <li style="margin-bottom:8px;font-weight:700">• WhatsApp community & support</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Course Grid (sample)</h3>
+        <div class="grid-20" aria-hidden="false">
+          <div class="item">Module 1 — Idea & Niche</div>
+          <div class="item">Module 2 — Product Creation</div>
+          <div class="item">Module 3 — Packaging</div>
+          <div class="item">Module 4 — Sales Page</div>
+          <div class="item">Module 5 — Ads Scripts</div>
+          <div class="item">Module 6 — Delivery & Automation</div>
+          <div class="item">Module 7 — Scaling</div>
+          <div class="item">Module 8 — Templates</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials slider -->
+    <section class="slider-wrap" id="reviews">
+      <h3 style="margin-bottom:12px">Reviews</h3>
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <div style="flex:1">
+          <div class="slider" id="slider">
+            <div class="review-card">
+              <div class="rev-name">Riya — Student</div>
+              <div class="small">"Made my first course in 5 days. Sold to 12 people in 2 weeks."</div>
+            </div>
+            <div class="review-card">
+              <div class="rev-name">Amit — Freelancer</div>
+              <div class="small">"Templates saved hours. Highly recommended."</div>
+            </div>
+            <div class="review-card">
+              <div class="rev-name">Suman — Side Hustle</div>
+              <div class="small">"Mobile friendly methods worked great."</div>
+            </div>
+            <div class="review-card">
+              <div class="rev-name">Priya — Blogger</div>
+              <div class="small">"I converted my blog into a paid ebook in 3 days."</div>
+            </div>
+            <div class="review-card">
+              <div class="rev-name">Karan — Marketer</div>
+              <div class="small">"Ad scripts were spot on. CTR improved."</div>
+            </div>
+          </div>
+
+          <div class="slider-controls" style="margin-top:12px;">
+            <button class="btn btn-outline" id="prevRev">Prev</button>
+            <button class="btn btn-outline" id="nextRev">Next</button>
+            <div style="flex:1"></div>
+            <div class="small">Auto-scroll every 5s</div>
+          </div>
+        </div>
+
+        <aside style="width:320px;display:flex;flex-direction:column;gap:12px;">
+          <div class="card">
+            <h4 style="margin:0 0 8px">FREE Bonus</h4>
+            <p style="margin:0">"How to earn 1 Crore using AI (2026)" — quick strategies + case studies.</p>
+          </div>
+          <div class="card">
+            <h4 style="margin:0 0 8px">Guarantee</h4>
+            <p style="margin:0">If you don't get value in 7 days, contact support for help.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+      <div>
+        <div style="font-size:18px;font-weight:800">Get the complete bundle</div>
+        <div class="small">Course + templates + bonus eBook + WhatsApp support</div>
+        <div style="margin-top:8px"><span class="spots">Only 50 spots left!</span></div>
+      </div>
+
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div class="price-badge">₹69</div>
+        <div class="bonus">FREE Bonus Book</div>
+        <div style="min-width:120px">
+          <button class="btn btn-primary" id="buyBtn2" aria-label="Buy now">Buy Now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <h3>FAQ</h3>
+      <div class="faq-item">
+        <div class="faq-q"><strong>Who is this for?</strong><span class="plus">+</span></div>
+        <div class="faq-a"><p style="margin:8px 0 0">Beginners, creators, students and small businesses who want to sell digital products quickly.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><strong>What payment methods?</strong><span class="plus">+</span></div>
+        <div class="faq-a"><p style="margin:8px 0 0">Razorpay — UPI, cards, netbanking. Secure checkout.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><strong>Delivery method?</strong><span class="plus">+</span></div>
+        <div class="faq-a"><p style="margin:8px 0 0">After payment you get instant access link / join the WhatsApp group for course delivery.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><strong>Refund policy?</strong><span class="plus">+</span></div>
+        <div class="faq-a"><p style="margin:8px 0 0">Contact support within 7 days — we'll assist or provide a refund if valid.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><strong>Do I need subscriptions?</strong><span class="plus">+</span></div>
+        <div class="faq-a"><p style="margin:8px 0 0">No — the course uses free tools and shareable templates.</p></div>
+      </div>
+    </section>
+
+    <footer>
+      &copy; TechBuzz — All rights reserved.
+    </footer>
+  </div>
+
+  <!-- Razorpay checkout script (client-side). Replace key/order details as instructed below -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <script>
+    /* ========================
+       Config & small helpers
+       ======================== */
+    const RAZORPAY_KEY_ID = "RAZORPAY_KEY_ID_REPLACE_ME"; // <-- replace with your Razorpay key id
+    const AMOUNT_INR = 69; // price displayed
+    const AMOUNT_PAISE = AMOUNT_INR * 100; // Razorpay expects paise (e.g. ₹69 -> 6900)
+
+    function scrollToSection(id){
+      document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    /* ========================
+       Countdown timer (example: 72 hours)
+       ======================== */
+    // Set offer end time: 72 hours from first page load (for demo).
+    if(!localStorage.getItem('offer_ends_at')){
+      const end = Date.now() + 72*60*60*1000;
+      localStorage.setItem('offer_ends_at', end);
+    }
+    const offerEndsAt = parseInt(localStorage.getItem('offer_ends_at'),10);
+    function updateTimer(){
+      const now = Date.now();
+      const diff = Math.max(0, offerEndsAt - now);
+      const hrs = Math.floor(diff / (1000*60*60));
+      const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+      const secs = Math.floor((diff % (1000*60)) / 1000);
+      document.getElementById('time').innerText = `${String(hrs).padStart(2,'0')}:${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+      if(diff<=0) clearInterval(timerInterval);
+    }
+    updateTimer();
+    const timerInterval = setInterval(updateTimer,1000);
+
+    /* ========================
+       Testimonials slider (auto + manual)
+       - shows variable number per viewport automatically
+       ======================== */
+    const slider = document.getElementById('slider');
+    const reviews = slider.children;
+    let currentIndex = 0;
+    let autoInterval = null;
+
+    function visibleCards(){
+      const w = window.innerWidth;
+      if(w >= 1000) return 3;
+      if(w >= 700) return 2;
+      return 1;
+    }
+
+    function goToIndex(i){
+      const cards = visibleCards();
+      const maxIndex = Math.max(0, reviews.length - cards);
+      currentIndex = Math.min(Math.max(0, i), maxIndex);
+      const cardWidth = reviews[0].offsetWidth + parseInt(getComputedStyle(slider).gap || 12);
+      slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+
+    document.getElementById('prevRev').addEventListener('click', ()=>{ goToIndex(currentIndex-1); resetAuto(); });
+    document.getElementById('nextRev').addEventListener('click', ()=>{ goToIndex(currentIndex+1); resetAuto(); });
+
+    function autoScroll(){
+      const cards = visibleCards();
+      const maxIndex = Math.max(0, reviews.length - cards);
+      goToIndex((currentIndex + 1) > maxIndex ? 0 : currentIndex+1);
+    }
+    function startAuto(){ autoInterval = setInterval(autoScroll,5000); }
+    function resetAuto(){ clearInterval(autoInterval); startAuto(); }
+    window.addEventListener('resize', ()=>{ goToIndex(0); });
+
+    startAuto();
+
+    /* ========================
+       FAQ accordion
+       ======================== */
+    document.querySelectorAll('.faq-item').forEach(item=>{
+      const q = item.querySelector('.faq-q');
+      const a = item.querySelector('.faq-a');
+      q.addEventListener('click', ()=>{
+        const isOpen = a.style.maxHeight && a.style.maxHeight !== '0px';
+        document.querySelectorAll('.faq-a').forEach(x=>x.style.maxHeight = null);
+        if(!isOpen){
+          a.style.maxHeight = a.scrollHeight + 'px';
+        }
+      });
+    });
+
+    /* ========================
+       BUY / RAZORPAY INTEGRATION
+       - Two options shown:
+         1) If you have a backend endpoint `/create_order` that returns { order_id: 'order_XXXX' } use that (recommended).
+         2) If you prefer client-only (less secure), Razorpay can open checkout with amount and key_id (server-side order recommended).
+       - Replace RAZORPAY_KEY_ID with your actual key id.
+       ======================== */
+
+    function openRazorpayClientOnly(){
+      const options = {
+        "key": RAZORPAY_KEY_ID, // Replace with your key id
+        "amount": AMOUNT_PAISE, // in paise
+        "currency": "INR",
+        "name": "TechBuzz",
+        "description": "How To Create & Sell Digital Product Using AI",
+        "image": "", // optional logo url
+        "handler": function (response){
+          // response.razorpay_payment_id
+          // TODO: verify payment on server and then grant access / show success page
+          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        "prefill": {
+          "name": "",
+          "email": "",
+          "contact": ""
+        },
+        "theme": { "color": "#fca311" }
+      };
+      const rzp = new Razorpay(options);
+      rzp.open();
+    }
+
+    async function openRazorpayWithOrder(){
+      try{
+        // Recommended approach: call your backend to create an order and return order_id & amount
+        // Example: POST /create_order  ->  { order_id: "order_Fxxxx", amount: 6900 }
+        // Replace URL with your server endpoint
+        const res = await fetch('/create_order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ amount: AMOUNT_PAISE })
+        });
+        if(!res.ok){
+          // fallback to client only if backend not configured
+          console.warn('create_order failed, falling back to client-only checkout');
+          openRazorpayClientOnly();
+          return;
+        }
+        const data = await res.json();
+        const options = {
+          key: RAZORPAY_KEY_ID,
+          amount: data.amount || AMOUNT_PAISE,
+          currency: "INR",
+          name: "TechBuzz",
+          description: "How To Create & Sell Digital Product Using AI",
+          order_id: data.order_id,
+          handler: function(response){
+            // verify on backend, then grant access
+            alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+          },
+          theme: {color: "#fca311"}
+        };
+        const rz = new Razorpay(options);
+        rz.open();
+      }catch(err){
+        console.error(err);
+        openRazorpayClientOnly();
+      }
+    }
+
+    // Attach to buttons
+    document.getElementById('buyBtn').addEventListener('click', ()=>{ openRazorpayWithOrder(); });
+    document.getElementById('buyBtn2').addEventListener('click', ()=>{ openRazorpayWithOrder(); });
+
+    /* Accessibility small touches */
+    document.querySelectorAll('button').forEach(b=>b.addEventListener('keyup', e=>{ if(e.key === 'Enter') b.click(); }));
+  </script>
+</body>
+</html>
