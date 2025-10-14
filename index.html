@@ -3,366 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Digital Products Course | TechBuzz</title>
+    <title>AI Digital Product Course</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom Configuration for Theme */
-        :root {
-            --bg-dark: #0a0a0a;
-            --highlight-green: #00ff55;
-            --text-light: #ffffff;
-            --text-secondary: #a0a0a0;
-        }
-
-        /* Applying the dark background to the body */
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            font-family: 'Inter', sans-serif; /* A modern, clean font */
+            background-color: #0a0a0a;
+            color: #ffffff;
         }
-
-        /* Customizing Tailwind colors for easy use */
-        .highlight-green {
-            color: var(--highlight-green);
+        .highlight {
+            color: #00ff55;
         }
-        .bg-highlight-green {
-            background-color: var(--highlight-green);
+        .btn {
+            background-color: #00ff55;
+            color: #0a0a0a;
+            font-weight: bold;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
         }
-
-        /* Custom hover effect for buttons/cards */
-        .hover-grow {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 255, 85, 0.3);
         }
-        .hover-grow:hover {
-            transform: translateY(-4px); /* Slight lift */
-            box-shadow: 0 10px 15px -3px rgba(0, 255, 85, 0.2), 0 4px 6px -2px rgba(0, 255, 85, 0.05); /* Soft glow */
+        .card {
+            background-color: #1a1a1a;
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
         }
-
-        /* Timer specific styling */
-        .timer-unit {
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .faq-question {
+            cursor: pointer;
+            padding: 1rem;
+            background-color: #1a1a1a;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            padding: 8px;
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.05); /* Slightly visible container */
-            min-width: 60px; /* Ensures stability */
         }
-        .timer-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1;
-        }
-        .timer-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--highlight-green);
-            font-weight: 500;
+        .faq-answer {
+            display: none;
+            padding: 1rem;
+            background-color: #2a2a2a;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
-<body class="antialiased">
+<body>
 
-    <header class="p-4 border-b border-gray-900">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold highlight-green">TechBuzz</h1>
+    <!-- Hero Section -->
+    <header class="container mx-auto px-4 py-12 md:py-24">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div class="text-center md:text-left">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">How to Create & Sell <span class="highlight">Digital Products</span> Using AI</h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-6">Learn step-by-step how to build and sell your first digital product using AI — no coding, no paid tools.</p>
+                <ul class="space-y-2 mb-8 text-left inline-block">
+                    <li class="flex items-center"><svg class="w-6 h-6 mr-2 highlight" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Launch in 3 Days</li>
+                    <li class="flex items-center"><svg class="w-6 h-6 mr-2 highlight" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Work on Mobile</li>
+                    <li class="flex items-center"><svg class="w-6 h-6 mr-2 highlight" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Free WhatsApp Support</li>
+                </ul>
+                <a href="https://rzp.io/l/example" class="btn block md:inline-block text-center">Get Instant Access <span class="line-through">₹99</span> → ₹69</a>
+            </div>
+            <div>
+                <img src="https://via.placeholder.com/500x500.png?text=Hero+Image" alt="AI Course" class="rounded-lg shadow-lg mx-auto">
+            </div>
         </div>
     </header>
 
-    <main class="container mx-auto px-4 py-8 md:py-16">
-
-        <section id="hero" class="text-center md:text-left flex flex-col-reverse md:flex-row items-center gap-8 mb-20">
-            <div class="md:w-1/2">
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
-                    How to Create & Sell Digital Products <span class="highlight-green">Using AI</span>
-                </h2>
-                <p class="text-xl text-gray-400 mb-6">
-                    Learn step-by-step how to build and sell your first digital product using AI — <span class="font-semibold highlight-green">no coding, no paid tools.</span>
-                </p>
-
-                <ul class="text-lg space-y-2 mb-8 text-left inline-block md:block">
-                    <li><span class="highlight-green mr-2">🚀</span> Launch in 3 Days</li>
-                    <li><span class="highlight-green mr-2">📱</span> Work on Mobile</li>
-                    <li><span class="highlight-green mr-2">💬</span> Free WhatsApp Support</li>
-                </ul>
-
-                <a href="#razorpay-link" class="inline-block px-10 py-4 text-xl font-bold rounded-full text-black bg-highlight-green hover-grow shadow-lg shadow-highlight-green/50 transition-all duration-300">
-                    Get Instant Access <span class="line-through">₹99</span> → ₹69
-                </a>
+    <!-- Free Bonuses Section -->
+    <section class="container mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold text-center mb-8">🎁 Free Bonuses with Your Purchase</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="card text-center">
+                <img src="https://via.placeholder.com/300x200.png?text=Ebook+Cover" alt="Bonus Ebook" class="rounded-lg mb-4 mx-auto">
+                <h3 class="text-xl font-bold mb-2">Free Ebook: "How to Earn 1 Cr Using AI (2026)"</h3>
+                <p class="text-gray-400 mb-4">A comprehensive guide to leveraging AI for financial success.</p>
+                <a href="https://rzp.io/l/example" class="btn">Claim Bonus</a>
             </div>
-
-            <div class="md:w-1/2 w-full flex justify-center">
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-2xl shadow-highlight-green/20">
-                    <img src="placeholder-hero-ebook.png" alt="AI Digital Product Ebook Mockup" class="w-full max-w-sm md:max-w-md mx-auto rounded-xl border border-highlight-green/50" loading="lazy">
-                </div>
+            <div class="card text-center">
+                <img src="https://via.placeholder.com/300x200.png?text=Canva+Pro" alt="Canva Pro" class="rounded-lg mb-4 mx-auto">
+                <h3 class="text-xl font-bold mb-2">Free Canva Pro Access</h3>
+                <p class="text-gray-400 mb-4">Get complimentary access to Canva Pro to create stunning visuals.</p>
+                <a href="https://rzp.io/l/example" class="btn">Claim Bonus</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <hr class="border-gray-900 my-16">
+    <!-- Who Can Buy Section -->
+    <section class="container mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold text-center mb-8">Who Can Buy This Ebook?</h2>
+        <div class="max-w-md mx-auto">
+            <ul class="space-y-4">
+                <li class="bg-gray-800 p-4 rounded-lg flex items-center"><span class="highlight text-2xl mr-4">✓</span> Students</li>
+                <li class="bg-gray-800 p-4 rounded-lg flex items-center"><span class="highlight text-2xl mr-4">✓</span> Beginners</li>
+                <li class="bg-gray-800 p-4 rounded-lg flex items-center"><span class="highlight text-2xl mr-4">✓</span> Freelancers</li>
+                <li class="bg-gray-800 p-4 rounded-lg flex items-center"><span class="highlight text-2xl mr-4">✓</span> Content Creators</li>
+            </ul>
+        </div>
+    </section>
 
-        <section id="timer-cta-top" class="text-center py-12 bg-gray-900 rounded-xl mb-20">
-            <h3 class="text-3xl font-bold mb-6">Limited-Time Offer Ends Soon!</h3>
-            <div id="countdown-timer" class="flex justify-center space-x-4 mb-8">
-                </div>
-            <a href="#razorpay-link" class="inline-block px-12 py-4 text-2xl font-extrabold rounded-full text-black bg-highlight-green hover-grow shadow-xl shadow-highlight-green/60 animate-pulse">
-                Buy Now & Start Learning
-            </a>
-            <p class="mt-4 text-sm text-gray-400">Secure your spot before the price increases.</p>
-        </section>
-
-        <hr class="border-gray-900 my-16">
-
-        <section id="bonuses" class="mb-20">
-            <h2 class="text-3xl font-bold text-center mb-12"><span class="highlight-green">🎁</span> Free Bonuses with Your Purchase</h2>
-
-            <div class="grid md:grid-cols-2 gap-8">
-
-                <div class="bg-gray-900 p-6 rounded-xl shadow-lg hover-grow flex flex-col items-center text-center">
-                    <img src="placeholder-bonus-ebook.png" alt="How to Earn 1 Cr Using AI Ebook" class="w-32 h-auto mb-4 rounded-lg border border-highlight-green/30" loading="lazy">
-                    <h3 class="text-2xl font-bold mb-2 highlight-green">How to Earn 1 Cr Using AI (2026)</h3>
-                    <p class="text-gray-400 mb-6 flex-grow">A cutting-edge guide detailing long-term, high-income strategies with AI for the future market. Don't miss the next big wave!</p>
-                    <a href="#razorpay-link" class="w-full px-6 py-3 text-lg font-bold rounded-full text-black bg-highlight-green hover:bg-highlight-green/80 transition duration-300">
-                        Claim Your Bonus
-                    </a>
-                </div>
-
-                <div class="bg-gray-900 p-6 rounded-xl shadow-lg hover-grow flex flex-col items-center text-center">
-                    <img src="placeholder-canva-pro.png" alt="Canva Pro Access Icon" class="w-32 h-auto mb-4 rounded-lg border border-highlight-green/30" loading="lazy">
-                    <h3 class="text-2xl font-bold mb-2 highlight-green">Free Canva Pro Access</h3>
-                    <p class="text-gray-400 mb-6 flex-grow">Get temporary access to Canva Pro to create stunning product mockups and marketing graphics without paying a subscription!</p>
-                    <a href="#razorpay-link" class="w-full px-6 py-3 text-lg font-bold rounded-full text-black bg-highlight-green hover:bg-highlight-green/80 transition duration-300">
-                        Claim Your Bonus
-                    </a>
-                </div>
-
+    <!-- Why Choose Us Section -->
+    <section class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="card text-center">
+                <img src="https://via.placeholder.com/80x80.png?text=Icon" class="mx-auto mb-4" />
+                <h3 class="text-xl font-bold">Instant Access</h3>
             </div>
-        </section>
-
-        <hr class="border-gray-900 my-16">
-
-        <section id="who-can-buy" class="mb-20 text-center">
-            <h2 class="text-3xl font-bold mb-12">Who Can Buy This <span class="highlight-green">Ebook?</span></h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-
-                <div class="p-4 bg-gray-900 rounded-lg hover-grow">
-                    <span class="text-4xl highlight-green block mb-2">🎓</span>
-                    <p class="font-semibold">Students</p>
-                </div>
-                <div class="p-4 bg-gray-900 rounded-lg hover-grow">
-                    <span class="text-4xl highlight-green block mb-2">💡</span>
-                    <p class="font-semibold">Beginners</p>
-                </div>
-                <div class="p-4 bg-gray-900 rounded-lg hover-grow">
-                    <span class="text-4xl highlight-green block mb-2">🤝</span>
-                    <p class="font-semibold">Freelancers</p>
-                </div>
-                <div class="p-4 bg-gray-900 rounded-lg hover-grow">
-                    <span class="text-4xl highlight-green block mb-2">🎥</span>
-                    <p class="font-semibold">Content Creators</p>
-                </div>
-
+            <div class="card text-center">
+                 <img src="https://via.placeholder.com/80x80.png?text=Icon" class="mx-auto mb-4" />
+                <h3 class="text-xl font-bold">Lifetime Access</h3>
             </div>
-        </section>
-
-        <hr class="border-gray-900 my-16">
-
-        <section id="why-choose-us" class="mb-20 text-center">
-            <h2 class="text-3xl font-bold mb-12">Why Choose <span class="highlight-green">Our Course?</span></h2>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-                <div class="p-6 bg-gray-900 rounded-xl hover-grow">
-                    <span class="text-5xl highlight-green block mb-3">⚡</span>
-                    <h4 class="font-bold text-xl mb-1">Instant Access</h4>
-                    <p class="text-gray-400 text-sm">Start learning immediately after purchase.</p>
-                </div>
-                <div class="p-6 bg-gray-900 rounded-xl hover-grow">
-                    <span class="text-5xl highlight-green block mb-3">♾️</span>
-                    <h4 class="font-bold text-xl mb-1">Lifetime Access</h4>
-                    <p class="text-gray-400 text-sm">Access all future updates at no extra cost.</p>
-                </div>
-                <div class="p-6 bg-gray-900 rounded-xl hover-grow">
-                    <span class="text-5xl highlight-green block mb-3">🔒</span>
-                    <h4 class="font-bold text-xl mb-1">Secure Payment</h4>
-                    <p class="text-gray-400 text-sm">Powered by Razorpay for 100% security.</p>
-                </div>
-                <div class="p-6 bg-gray-900 rounded-xl hover-grow">
-                    <span class="text-5xl highlight-green block mb-3">💵</span>
-                    <h4 class="font-bold text-xl mb-1">One-Time Payment</h4>
-                    <p class="text-gray-400 text-sm">No subscriptions or hidden fees ever.</p>
-                </div>
-
+            <div class="card text-center">
+                 <img src="https://via.placeholder.com/80x80.png?text=Icon" class="mx-auto mb-4" />
+                <h3 class="text-xl font-bold">Secure Payment</h3>
             </div>
-        </section>
-
-        <hr class="border-gray-900 my-16">
-
-        <section id="trust" class="mb-20 text-center">
-            <h2 class="text-3xl font-bold mb-12">Payment से लेकर Delivery तक – <span class="highlight-green">100% Trust ✅</span></h2>
-
-            <div class="flex flex-wrap justify-center gap-4">
-                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 bg-gray-900 p-2 rounded-lg shadow-xl hover-grow">
-                    <img src="placeholder-whatsapp-proof1.png" alt="WhatsApp Testimonial Screenshot 1" class="w-full rounded-md border border-highlight-green/30" loading="lazy">
-                </div>
-                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 bg-gray-900 p-2 rounded-lg shadow-xl hover-grow">
-                    <img src="placeholder-whatsapp-proof2.png" alt="WhatsApp Testimonial Screenshot 2" class="w-full rounded-md border border-highlight-green/30" loading="lazy">
-                </div>
-                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 bg-gray-900 p-2 rounded-lg shadow-xl hover-grow">
-                    <img src="placeholder-whatsapp-proof3.png" alt="WhatsApp Testimonial Screenshot 3" class="w-full rounded-md border border-highlight-green/30" loading="lazy">
-                </div>
+            <div class="card text-center">
+                 <img src="https://via.placeholder.com/80x80.png?text=Icon" class="mx-auto mb-4" />
+                <h3 class="text-xl font-bold">One-Time Payment</h3>
             </div>
-            <p class="mt-8 text-lg text-gray-400">Join 500+ happy customers who have successfully launched their products!</p>
-        </section>
+        </div>
+    </section>
 
-        <hr class="border-gray-900 my-16">
+    <!-- Trust Section -->
+    <section class="container mx-auto px-4 py-12 text-center">
+        <h2 class="text-3xl font-bold mb-8">Payment से लेकर Delivery तक – 100% Trust ✅</h2>
+        <div class="flex justify-center space-x-4">
+            <img src="https://via.placeholder.com/200x400.png?text=WhatsApp+Chat+1" alt="WhatsApp Screenshot 1" class="rounded-lg">
+            <img src="https://via.placeholder.com/200x400.png?text=WhatsApp+Chat+2" alt="WhatsApp Screenshot 2" class="rounded-lg hidden md:block">
+        </div>
+    </section>
 
-        <section id="faq" class="mb-20 max-w-3xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked <span class="highlight-green">Questions</span></h2>
-
-            <div class="space-y-4">
-                <div class="faq-item bg-gray-900 p-4 rounded-xl cursor-pointer hover:bg-gray-800 transition duration-200">
-                    <div class="faq-question flex justify-between items-center font-semibold text-lg highlight-green">
-                        <span>How will I get Canva Pro Access?</span>
-                        <span class="faq-icon transition-transform duration-300 transform rotate-0">+</span>
-                    </div>
-                    <div class="faq-answer hidden mt-2 text-gray-300">
-                        Upon purchase, you will receive a guide with a dedicated link to join our Canva Pro team. This will grant you temporary access to all Pro features for your design needs.
-                    </div>
-                </div>
-
-                <div class="faq-item bg-gray-900 p-4 rounded-xl cursor-pointer hover:bg-gray-800 transition duration-200">
-                    <div class="faq-question flex justify-between items-center font-semibold text-lg highlight-green">
-                        <span>Is this ebook beginner friendly?</span>
-                        <span class="faq-icon transition-transform duration-300 transform rotate-0">+</span>
-                    </div>
-                    <div class="faq-answer hidden mt-2 text-gray-300">
-                        Absolutely! The course is designed for absolute beginners. We start from the basics of AI tools and walk you through every step to create and launch your product. No prior experience is needed.
-                    </div>
-                </div>
-
-                <div class="faq-item bg-gray-900 p-4 rounded-xl cursor-pointer hover:bg-gray-800 transition duration-200">
-                    <div class="faq-question flex justify-between items-center font-semibold text-lg highlight-green">
-                        <span>Can I earn money using this method?</span>
-                        <span class="faq-icon transition-transform duration-300 transform rotate-0">+</span>
-                    </div>
-                    <div class="faq-answer hidden mt-2 text-gray-300">
-                        Yes, the course provides a proven framework for creating in-demand digital products. While results vary based on effort and market, the methods taught are highly effective for generating passive income.
-                    </div>
-                </div>
-
-                <div class="faq-item bg-gray-900 p-4 rounded-xl cursor-pointer hover:bg-gray-800 transition duration-200">
-                    <div class="faq-question flex justify-between items-center font-semibold text-lg highlight-green">
-                        <span>Is there any refund policy?</span>
-                        <span class="faq-icon transition-transform duration-300 transform rotate-0">+</span>
-                    </div>
-                    <div class="faq-answer hidden mt-2 text-gray-300">
-                        Due to the nature of digital products and instant access, we generally do not offer refunds. However, if you experience any technical issues with the files, please contact our support team.
-                    </div>
-                </div>
+    <!-- FAQ Section -->
+    <section class="container mx-auto px-4 py-12 max-w-2xl">
+        <h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+        <div id="faq-container">
+            <div class="faq-item">
+                <div class="faq-question"><span>How will I get Canva Pro Access?</span><span>+</span></div>
+                <div class="faq-answer">You will receive an invitation link to Canva Pro within 24 hours of your purchase.</div>
             </div>
-        </section>
+            <div class="faq-item">
+                <div class="faq-question"><span>Is this ebook beginner friendly?</span><span>+</span></div>
+                <div class="faq-answer">Yes, this ebook is designed for beginners with no prior experience.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Can I earn money using this method?</span><span>+</span></div>
+                <div class="faq-answer">Absolutely! The methods in this ebook are designed to help you monetize your AI-powered digital products.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Is there any refund policy?</span><span>+</span></div>
+                <div class="faq-answer">Due to the digital nature of the product, we do not offer refunds.</div>
+            </div>
+        </div>
+    </section>
 
-        <hr class="border-gray-900 my-16">
+    <!-- Timer & CTA Section -->
+    <section class="container mx-auto px-4 py-12 text-center">
+        <div id="countdown" class="text-4xl font-bold highlight mb-4"></div>
+        <a href="https://rzp.io/l/example" class="btn text-2xl">Buy Now & Start Learning</a>
+    </section>
 
-        <section id="timer-cta-bottom" class="text-center py-12 bg-highlight-green/10 rounded-xl mb-16">
-            <h3 class="text-3xl font-bold mb-6">Don't Miss Out on the Discount!</h3>
-            <div id="countdown-timer-bottom" class="flex justify-center space-x-4 mb-8">
-                </div>
-            <a href="#razorpay-link" class="inline-block px-12 py-5 text-2xl font-extrabold rounded-full text-black bg-highlight-green hover-grow shadow-2xl shadow-highlight-green/80 transition-all duration-300">
-                Buy Now & Start Learning
-            </a>
-            <p class="mt-4 text-xl font-semibold highlight-green">Offer Price: ₹69 (Original Price: ₹99)</p>
-        </section>
-
-    </main>
-
-    <footer class="bg-gray-900 p-6 mt-12 text-center text-gray-500 text-sm">
-        <p class="mb-2">© 2025 Achintya Chouni | All Rights Reserved | TechBuzz</p>
-        <p>Disclaimer: Results are not guaranteed. Earnings depend on individual effort and market conditions.</p>
+    <!-- Footer -->
+    <footer class="text-center py-8">
+        <p>© 2025 Achintya Chouni | All Rights Reserved | TechBuzz</p>
     </footer>
 
     <script>
-        // --- Countdown Timer Logic ---
-        function startCountdown() {
-            // Set the date we're counting down to (e.g., 24 hours from now)
-            // You can replace this with a fixed time if needed, e.g., new Date("Oct 25, 2025 15:37:25").getTime()
-            const now = new Date().getTime();
-            const futureDate = now + (24 * 60 * 60 * 1000); // 24 hours from now
-
-            const timerElementTop = document.getElementById("countdown-timer");
-            const timerElementBottom = document.getElementById("countdown-timer-bottom");
-
-            const interval = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = futureDate - now;
-
-                // Time calculations for days, hours, minutes and seconds
-                // For a 24-hour timer, Days will always be 0, but included for robustness
-                // const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                // Format the time to always show two digits
-                const formatTime = (t) => t < 10 ? "0" + t : t;
-
-                const timerHTML = `
-                    <div class="timer-unit">
-                        <span class="timer-value highlight-green">${formatTime(hours)}</span>
-                        <span class="timer-label">Hours</span>
-                    </div>
-                    <div class="timer-unit">
-                        <span class="timer-value highlight-green">${formatTime(minutes)}</span>
-                        <span class="timer-label">Minutes</span>
-                    </div>
-                    <div class="timer-unit">
-                        <span class="timer-value highlight-green">${formatTime(seconds)}</span>
-                        <span class="timer-label">Seconds</span>
-                    </div>
-                `;
-
-                // Display the result
-                if (timerElementTop) timerElementTop.innerHTML = timerHTML;
-                if (timerElementBottom) timerElementBottom.innerHTML = timerHTML;
-
-                // If the count down is finished, write some text
-                if (distance < 0) {
-                    clearInterval(interval);
-                    const expiredHTML = `<span class="text-xl font-bold text-red-500">OFFER EXPIRED!</span>`;
-                    if (timerElementTop) timerElementTop.innerHTML = expiredHTML;
-                    if (timerElementBottom) timerElementBottom.innerHTML = expiredHTML;
-                }
-            }, 1000);
-        }
-
-        // --- FAQ Collapsible Logic ---
-        function setupFAQ() {
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    const answer = item.querySelector('.faq-answer');
-                    const icon = item.querySelector('.faq-icon');
-
-                    // Toggle the 'hidden' class on the answer
-                    answer.classList.toggle('hidden');
-
-                    // Rotate the icon
-                    if (answer.classList.contains('hidden')) {
-                        icon.style.transform = 'rotate(0deg)'; // Close state
-                        icon.textContent = '+';
-                    } else {
-                        icon.style.transform = 'rotate(45deg)'; // Open state (to look like an 'X')
-                        icon.textContent = '×';
-                    }
-                });
-            });
-        }
-
-        // Initialize all functions on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            startCountdown();
-            setupFAQ();
+        // FAQ Accordion
+        const faqContainer = document.getElementById('faq-container');
+        faqContainer.addEventListener('click', (e) => {
+            const question = e.target.closest('.faq-question');
+            if (question) {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('span:last-child');
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                icon.textContent = icon.textContent === '+' ? '-' : '+';
+            }
         });
+
+        // Countdown Timer
+        const countdownElement = document.getElementById('countdown');
+        let timeInSeconds = 3600; // 1 hour
+        setInterval(() => {
+            const hours = Math.floor(timeInSeconds / 3600);
+            const minutes = Math.floor((timeInSeconds % 3600) / 60);
+            const seconds = timeInSeconds % 60;
+            countdownElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            timeInSeconds--;
+            if (timeInSeconds < 0) timeInSeconds = 3600;
+        }, 1000);
     </script>
 </body>
 </html>
