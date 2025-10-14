@@ -1,254 +1,191 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How to Create and Sell Digital Products Using AI</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { CheckCircle } from "lucide-react";
+import { useState, useEffect } from "react";
 
-    body {
-      background-color: #f7f8fc;
-      color: #333;
-      scroll-behavior: smooth;
-    }
+export default function LandingPage() {
+  const [timeLeft, setTimeLeft] = useState(600);
 
-    /* ---------- HERO SECTION ---------- */
-    .hero {
-      background: linear-gradient(135deg, #211C84, #4D55CC);
-      color: #fff;
-      text-align: center;
-      padding: 80px 20px;
-    }
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
-    .hero img {
-      width: 220px;
-      margin-bottom: 20px;
-      border-radius: 16px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
+  const formatTime = (seconds) => {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  };
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
+  const faqs = [
+    {
+      question: "How will I get Canva Pro Access?",
+      answer: "After payment, you’ll get instant access via WhatsApp message.",
+    },
+    {
+      question: "Is this ebook beginner friendly?",
+      answer: "Yes, it’s made for students and beginners using mobile only.",
+    },
+    {
+      question: "Can I earn money using this method?",
+      answer: "Yes! You’ll learn 5+ AI income models explained step-by-step.",
+    },
+    {
+      question: "Is there any refund policy?",
+      answer: "Digital product — no refund, but full support on WhatsApp.",
+    },
+  ];
 
-    .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 25px;
-      color: #E5E5E5;
-    }
+  const [openIndex, setOpenIndex] = useState(null);
 
-    .btn {
-      background: #FCA311;
-      color: #fff;
-      padding: 14px 32px;
-      font-size: 1rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+  return (
+    <div className="bg-[#0a0a0a] text-white font-sans overflow-hidden">
+      {/* Hero Section */}
+      <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-12 bg-gradient-to-b from-[#001F3F] to-[#000] text-center md:text-left">
+        <div className="max-w-lg space-y-6">
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+            How to <span className="text-green-400">Create & Sell</span> Digital Products Using AI
+          </h1>
+          <p className="text-gray-300 text-base md:text-lg">
+            Learn step-by-step how to build and sell your first digital product using AI — no coding, no paid tools.
+          </p>
+          <ul className="space-y-2 text-left">
+            <li className="flex items-center gap-2"><CheckCircle className="text-green-400" size={18}/>Launch in 3 Days</li>
+            <li className="flex items-center gap-2"><CheckCircle className="text-green-400" size={18}/>Work on Mobile</li>
+            <li className="flex items-center gap-2"><CheckCircle className="text-green-400" size={18}/>Free WhatsApp Support</li>
+          </ul>
+          <div className="space-y-3">
+           <Button
+  onClick={() => window.location.href = "https://rzp.io/l/yourPaymentLink"}
+  className="bg-green-500 hover:bg-green-600 text-black font-bold text-lg px-6 py-3 rounded-xl"
+>
+  Get Instant Access ₹99 → ₹69
+</Button>
+            <p className="text-sm text-gray-400">Limited Time Offer ⚡</p>
+          </div>
+        </div>
+        <motion.img 
+          initial={{opacity: 0, y: 50}}
+          animate={{opacity: 1, y: 0}}
+          transition={{duration: 1}}
+          src="/images/hero-poster.png"
+          alt="Ebook Hero Poster"
+          className="w-full md:w-[380px] rounded-2xl shadow-lg mt-8 md:mt-0"
+        />
+      </section>
 
-    .btn:hover {
-      background: #ff8c00;
-    }
+      {/* Free Bonuses Section */}
+      <section className="px-6 md:px-16 py-12 text-center bg-gradient-to-b from-[#0b0b0b] to-[#111] border-t border-green-500/10">
+        <h2 className="text-2xl md:text-4xl font-semibold mb-8 text-green-400">🎁 Free Bonuses with Your Purchase</h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          <Card className="bg-[#0d0d0d] border border-green-400/20 rounded-2xl hover:scale-[1.02] transition-all duration-300">
+            <CardContent className="p-6 flex flex-col items-center">
+              <img src="/images/ebook-mockup.png" alt="How to Earn 1 Cr Using AI" className="w-48 md:w-64 rounded-xl shadow-md mb-4"/>
+              <h3 className="text-xl font-semibold mb-2 text-green-300">Free Ebook: How to Earn 1 Cr Using AI (2026)</h3>
+              <p className="text-gray-400 text-sm mb-4">Learn future AI business models and income systems.</p>
+              <img src="/images/ebook-poster.png" alt="Ebook Poster" className="w-full md:w-[300px] rounded-xl shadow"/>
+            </CardContent>
+          </Card>
 
-    /* ---------- PRODUCT DETAILS ---------- */
-    .product-section {
-      max-width: 1100px;
-      margin: 60px auto;
-      text-align: center;
-      padding: 0 20px;
-    }
+          <Card className="bg-[#0d0d0d] border border-green-400/20 rounded-2xl hover:scale-[1.02] transition-all duration-300">
+            <CardContent className="p-6 flex flex-col items-center">
+              <img src="/images/canva-poster.png" alt="Canva Pro Poster" className="w-48 md:w-64 rounded-xl shadow-md mb-4"/>
+              <h3 className="text-xl font-semibold mb-2 text-green-300">Free Canva Pro Access 🎨</h3>
+              <p className="text-gray-400 text-sm mb-4">Design like a pro with premium templates — perfect for students & creators.</p>
+              <img src="/images/canva-bonus.png" alt="Canva Bonus Poster" className="w-full md:w-[300px] rounded-xl shadow"/>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
 
-    .product-section h2 {
-      font-size: 2rem;
-      color: #211C84;
-      margin-bottom: 20px;
-    }
+      {/* Who Can Buy This Ebook Section */}
+      <section className="px-6 md:px-16 py-12 bg-[#0a0a0a] text-center">
+        <h2 className="text-2xl md:text-4xl font-bold text-green-400 mb-6">Who Can Buy This Ebook?</h2>
+        <ul className="space-y-4 text-gray-300 max-w-2xl mx-auto">
+          <li>✅ Students who want to earn online using mobile</li>
+          <li>✅ Beginners who want to start digital business</li>
+          <li>✅ Freelancers looking for AI-powered side income</li>
+          <li>✅ Content creators, designers, and marketers</li>
+        </ul>
+      </section>
 
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
-    }
+      {/* Why Choose Us Section */}
+      <section className="px-6 md:px-16 py-12 bg-gradient-to-r from-[#001F3F] to-[#003300] text-center">
+        <h2 className="text-2xl md:text-4xl font-bold text-green-400 mb-6">Why Choose Us?</h2>
+        <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <Card className="bg-[#0a0a0a] border border-green-500/20 rounded-2xl p-6 flex flex-col items-center">
+            <img src="/images/instant.png" alt="Instant Access" className="w-12 mb-3" />
+            <p className="text-gray-300 font-semibold">⚡ Instant Access</p>
+          </Card>
+          <Card className="bg-[#0a0a0a] border border-green-500/20 rounded-2xl p-6 flex flex-col items-center">
+            <img src="/images/lifetime.png" alt="Lifetime Access" className="w-12 mb-3" />
+            <p className="text-gray-300 font-semibold">♾️ Lifetime Access</p>
+          </Card>
+          <Card className="bg-[#0a0a0a] border border-green-500/20 rounded-2xl p-6 flex flex-col items-center">
+            <img src="/images/secure.png" alt="Secure Payment" className="w-12 mb-3" />
+            <p className="text-gray-300 font-semibold">🔒 Secure Payment</p>
+          </Card>
+          <Card className="bg-[#0a0a0a] border border-green-500/20 rounded-2xl p-6 flex flex-col items-center">
+            <img src="/images/onetime.png" alt="One Time Payment" className="w-12 mb-3" />
+            <p className="text-gray-300 font-semibold">💳 One-Time Payment</p>
+          </Card>
+        </div>
+      </section>
 
-    .product-card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 14px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+      {/* Trust Section */}
+      <section className="px-6 md:px-16 py-12 text-center bg-[#0d0d0d]">
+        <h2 className="text-2xl md:text-3xl font-bold text-green-400 mb-4">Payment से लेकर Delivery तक – 100% Trust ✅</h2>
+        <p className="text-gray-400 mb-6">Check how students are getting access instantly after payment 👇</p>
+        <div className="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          <img src="/images/whatsapp1.png" alt="Chat 1" className="rounded-xl shadow-md"/>
+          <img src="/images/whatsapp2.png" alt="Chat 2" className="rounded-xl shadow-md"/>
+          <img src="/images/whatsapp3.png" alt="Chat 3" className="rounded-xl shadow-md"/>
+        </div>
+      </section>
 
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
+      {/* FAQ Section */}
+      <section className="px-6 md:px-16 py-12 bg-[#0b0b0b] text-center">
+        <h2 className="text-2xl md:text-4xl font-bold text-green-400 mb-8">❓ Frequently Asked Questions</h2>
+        <div className="max-w-3xl mx-auto space-y-4">
+          {faqs.map((faq, index) => (
+            <div key={index} className="border border-green-400/30 rounded-xl overflow-hidden">
+              <button
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                className="w-full text-left px-4 py-4 bg-[#0d0d0d] hover:bg-[#111] text-green-300 font-semibold flex justify-between items-center"
+              >
+                {faq.question}
+                <span className="text-green-400">{openIndex === index ? '-' : '+'}</span>
+              </button>
+              {openIndex === index && (
+                <div className="bg-[#0a0a0a] px-4 py-3 text-gray-400 text-sm border-t border-green-400/20">
+                  {faq.answer}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
 
-    /* ---------- REVIEW SECTION ---------- */
-    .review-section {
-      background: #fff;
-      padding: 60px 20px;
-      text-align: center;
-    }
+      {/* Timer & CTA */}
+      <section className="bg-green-600 text-black text-center py-10 px-6">
+        <h2 className="text-2xl md:text-3xl font-bold mb-3">⏰ Offer Ends Soon! Grab It Now</h2>
+        <div className="text-3xl font-bold mb-4">{formatTime(timeLeft)}</div>
+        <p className="mb-4 text-black text-base md:text-lg">Get both ebooks + Canva Pro access for just ₹69</p>
+       <Button
+  onClick={() => window.location.href = "https://rzp.io/l/yourPaymentLink"}
+  className="bg-black text-green-400 hover:bg-gray-900 font-bold text-lg px-8 py-3 rounded-xl"
+>
+  Buy Now & Start Learning
+</Button>
+      </section>
 
-    .review-section h2 {
-      font-size: 2rem;
-      color: #211C84;
-      margin-bottom: 10px;
-    }
-
-    .review-section p {
-      color: #555;
-      margin-bottom: 40px;
-    }
-
-    .review-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      justify-items: center;
-    }
-
-    .review-card {
-      background: #fff;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      width: 100%;
-      max-width: 280px;
-    }
-
-    .review-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .review-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-bottom: 1px solid #eee;
-    }
-
-    /* ---------- PRICING SECTION ---------- */
-    .pricing {
-      background: #211C84;
-      color: #fff;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .pricing h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .pricing p {
-      margin-bottom: 30px;
-      font-size: 1.1rem;
-    }
-
-    .price {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #FCA311;
-      margin-bottom: 20px;
-    }
-
-    /* ---------- FOOTER ---------- */
-    footer {
-      background: #4D55CC;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-    }
-
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-
-      .hero img {
-        width: 160px;
-      }
-
-      .product-card {
-        padding: 15px;
-      }
-
-      .review-card {
-        max-width: 180px;
-      }
-
-      .price {
-        font-size: 2rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <img src="How to create and sell digital product ussing ai.jpg.png" alt="eBook Cover">
-    <h1>How to Create & Sell Digital Products Using AI 💻</h1>
-    <p>Learn how to build and sell profitable digital products using Artificial Intelligence!</p>
-    <button class="btn">Buy Now @ ₹299</button>
-  </section>
-
-  <!-- PRODUCT DETAILS -->
-  <section class="product-section">
-    <h2>What You'll Learn 🚀</h2>
-    <div class="product-grid">
-      <div class="product-card">✅ How to find profitable niches</div>
-      <div class="product-card">✅ Create eBooks & Courses using AI</div>
-      <div class="product-card">✅ Build a brand without coding</div>
-      <div class="product-card">✅ Launch & sell online worldwide</div>
+      {/* Footer */}
+      <footer className="bg-[#0f0f0f] text-gray-400 text-center py-6 text-sm">
+        <p>© 2025 Achintya Chouni | All Rights Reserved | TechBuzz</p>
+      </footer>
     </div>
-  </section>
-
-  <!-- REVIEW SECTION (WhatsApp Screenshot Grid) -->
-  <section class="review-section">
-    <h2>Student WhatsApp Reviews 💬</h2>
-    <p>See what our students are saying about our course!</p>
-
-    <div class="review-grid">
-      <div class="review-card"><img src="images/review1.jpg" alt="WhatsApp Review 1"></div>
-      <div class="review-card"><img src="images/review2.jpg" alt="WhatsApp Review 2"></div>
-      <div class="review-card"><img src="images/review3.jpg" alt="WhatsApp Review 3"></div>
-      <div class="review-card"><img src="images/review4.jpg" alt="WhatsApp Review 4"></div>
-      <div class="review-card"><img src="images/review5.jpg" alt="WhatsApp Review 5"></div>
-      <div class="review-card"><img src="images/review6.jpg" alt="WhatsApp Review 6"></div>
-      <div class="review-card"><img src="images/review7.jpg" alt="WhatsApp Review 7"></div>
-      <div class="review-card"><img src="images/review8.jpg" alt="WhatsApp Review 8"></div>
-    </div>
-  </section>
-
-  <!-- PRICING SECTION -->
-  <section class="pricing">
-    <h2>Get This Course Now!</h2>
-    <p>Only 50 Spots Left! Don’t Miss Out 🔥</p>
-    <div class="price">₹299</div>
-    <button class="btn">Buy Now</button>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2025 TechBuzz. All Rights Reserved.
-  </footer>
-
-</body>
-</html>
+  );
+}
