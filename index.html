@@ -41,6 +41,9 @@ export default function LandingPage() {
 
   const [openIndex, setOpenIndex] = useState(null);
 
+  // Payment handler (all buttons use direct Razorpay link)
+  const paymentLink = "https://rzp.io/l/yourPaymentLink";
+
   return (
     <div className="bg-[#0a0a0a] text-white font-sans overflow-hidden">
       {/* Hero Section */}
@@ -58,12 +61,12 @@ export default function LandingPage() {
             <li className="flex items-center gap-2"><CheckCircle className="text-green-400" size={18}/>Free WhatsApp Support</li>
           </ul>
           <div className="space-y-3">
-           <Button
-  onClick={() => window.location.href = "https://rzp.io/l/yourPaymentLink"}
-  className="bg-green-500 hover:bg-green-600 text-black font-bold text-lg px-6 py-3 rounded-xl"
->
-  Get Instant Access ₹99 → ₹69
-</Button>
+            <Button
+              onClick={() => window.location.href = paymentLink}
+              className="bg-green-500 hover:bg-green-600 text-black font-bold text-lg px-6 py-3 rounded-xl"
+            >
+              Get Instant Access ₹99 → ₹69
+            </Button>
             <p className="text-sm text-gray-400">Limited Time Offer ⚡</p>
           </div>
         </div>
@@ -87,6 +90,12 @@ export default function LandingPage() {
               <h3 className="text-xl font-semibold mb-2 text-green-300">Free Ebook: How to Earn 1 Cr Using AI (2026)</h3>
               <p className="text-gray-400 text-sm mb-4">Learn future AI business models and income systems.</p>
               <img src="/images/ebook-poster.png" alt="Ebook Poster" className="w-full md:w-[300px] rounded-xl shadow"/>
+              <Button
+                onClick={() => window.location.href = paymentLink}
+                className="mt-4 bg-green-500 hover:bg-green-600 text-black font-bold px-4 py-2 rounded-xl"
+              >
+                Claim This Bonus
+              </Button>
             </CardContent>
           </Card>
 
@@ -96,6 +105,12 @@ export default function LandingPage() {
               <h3 className="text-xl font-semibold mb-2 text-green-300">Free Canva Pro Access 🎨</h3>
               <p className="text-gray-400 text-sm mb-4">Design like a pro with premium templates — perfect for students & creators.</p>
               <img src="/images/canva-bonus.png" alt="Canva Bonus Poster" className="w-full md:w-[300px] rounded-xl shadow"/>
+              <Button
+                onClick={() => window.location.href = paymentLink}
+                className="mt-4 bg-green-500 hover:bg-green-600 text-black font-bold px-4 py-2 rounded-xl"
+              >
+                Claim Canva Pro
+              </Button>
             </CardContent>
           </Card>
         </div>
@@ -174,12 +189,12 @@ export default function LandingPage() {
         <h2 className="text-2xl md:text-3xl font-bold mb-3">⏰ Offer Ends Soon! Grab It Now</h2>
         <div className="text-3xl font-bold mb-4">{formatTime(timeLeft)}</div>
         <p className="mb-4 text-black text-base md:text-lg">Get both ebooks + Canva Pro access for just ₹69</p>
-       <Button
-  onClick={() => window.location.href = "https://rzp.io/l/yourPaymentLink"}
-  className="bg-black text-green-400 hover:bg-gray-900 font-bold text-lg px-8 py-3 rounded-xl"
->
-  Buy Now & Start Learning
-</Button>
+        <Button
+          onClick={() => window.location.href = paymentLink}
+          className="bg-black text-green-400 hover:bg-gray-900 font-bold text-lg px-8 py-3 rounded-xl"
+        >
+          Buy Now & Start Learning
+        </Button>
       </section>
 
       {/* Footer */}
